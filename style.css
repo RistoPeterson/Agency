@@ -35,16 +35,21 @@
 .nav-list, ul, li, a {
     color: #fff;
     text-decoration: none;  
-}
+}  
 
-.nav-list li a::after {
+.nav-list, ul li::after {
     content: '';
     height: 3px;
-    width: 100%;
+    width: 0;
     background: #ffc107;
     position: absolute;
     left: 0;
-    bottom: - 10px;
+    bottom: -10px;
+}
+
+.nav-list, ul li:hover::after {
+    width: 100%;
+    transition: 0.5s;
 }
 
 .logo {
@@ -54,29 +59,67 @@
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    width: 100%;
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 60%;
+    transform: translateY(-50%);
+    text-align: center;
     color: #fff;
 
 }
 
-h1 {
+.title {
     font-size: 65px;
-    line-height: 65px;
-    margin-bottom: 20px;
+    line-height: 100px;
+    font-weight: bold;
+    height: 100px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.text p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-family: sans-serif;
 }
 
 .btn {
-    width: 300px;
+    padding: 10px 15px;
+    margin: 20px;
+    letter-spacing: 1px;
     color: #fff;
-    background-color: transparent;
-    padding: 10px 25px;
+    background: linear-gradient(to right, transparent 50%, rgb(255, 123, 0) 50%);
     border: 1px solid rgb(255, 123, 0);
+    background-size: 200%;
+    background-position: left;
+    transition: background-position 0.5s;
     top: 70%;
-    margin-top: 25px;
+    cursor: pointer;
+
+}
+
+.btn:hover {
+    background-position: right; 
+    color: #000;
+}
+
+.slider {
+   color:rgb(255, 123, 0);
+   box-sizing: border-box;
+   animation: slider 6s linear infinite;
+}
+
+@keyframes slider {
+  0% { margin-top: -400px; }
+  5% { margin-top: -200px; }
+  30% { margin-top: -200px; }
+  35% { margin-top: 0px; }
+  65% { margin-top: 0px; }
+  70% { margin-top: 200px; }
+  100% { margin-top: 200px; }
 }
